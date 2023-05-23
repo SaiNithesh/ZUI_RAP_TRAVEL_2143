@@ -1,26 +1,8 @@
 ## Application Details
-|               |
-| ------------- |
-|**Generation Date and Time**<br>Tue Jun 07 2022 07:34:59 GMT+0000 (Coordinated Universal Time)|
-|**App Generator**<br>@sap/generator-fiori-elements|
-|**App Generator Version**<br>1.5.5|
-|**Generation Platform**<br>SAP Business Application Studio|
-|**Floorplan Used**<br>List Report Object Page V2|
-|**Service Type**<br>SAP System (ABAP On Premise)|
-|**Service URL**<br>https://44fbbf39-44b5-48cb-9800-cbb9cbadbedf.abap.us10.hana.ondemand.com/sap/opu/odata/sap/ZUI_RAP_TRAVEL_O2_2143
-|**Module Name**<br>zui_rap_travel_2143|
-|**Application Title**<br>App Title|
-|**Namespace**<br>|
-|**UI5 Theme**<br>sap_fiori_3|
-|**UI5 Version**<br>1.99.0|
-|**Enable Code Assist Libraries**<br>False|
-|**Add Eslint configuration**<br>False|
-|**Main Entity**<br>Travel|
-|**Navigation Entity**<br>None|
 
 ## zui_rap_travel_2143
 
-A Fiori application.
+A Fiori application with Managed App Router which can be deployed to SAP BTP Cloud Foundry.
 
 ### Starting the generated app
 

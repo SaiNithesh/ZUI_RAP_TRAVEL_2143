@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
 specVersion: '2.4'
 metadata:
-  name: zuiraptravel2143
+  name: zuiraptravel
 type: application
 resources:
   configuration:
@@ -13,13 +13,13 @@ builder:
       - "/localService/**"
   customTasks:
   - name: webide-extension-task-updateManifestJson
-    beforeTask: generateManifestBundle
+    afterTask: replaceVersion
     configuration:
       appFolder: webapp
       destDir: dist
   - name: ui5-task-zipper
     afterTask: generateCachebusterInfo
     configuration:
-      archiveName: zuiraptravel2143
+      archiveName: zuiraptravel
       additionalFiles:
       - xs-app.json

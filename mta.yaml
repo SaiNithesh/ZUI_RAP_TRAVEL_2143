@@ -1,25 +1,55 @@
 _schema-version: "3.2"
-ID: zuiraptravel2143
-description: A Fiori application.
+ID: ZUI_RAP_TRAVEL_2143
+description: Travel App
 version: 0.0.1
 modules:
-- name: zuiraptravel2143-app-content
+- name: ZUI_RAP_TRAVEL_2143-dest-content
+  type: com.sap.application.content
+  requires:
+  - name: ZUI_RAP_TRAVEL_2143-destination-service
+    parameters:
+      content-target: true
+  - name: ZUI_RAP_TRAVEL_2143-repo-host
+    parameters:
+      service-key:
+        name: ZUI_RAP_TRAVEL_2143-repo-host-key
+  - name: ZUI_RAP_TRAVEL_2143-uaa
+    parameters:
+      service-key:
+        name: ZUI_RAP_TRAVEL_2143-uaa-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: ZUI_RAP_TRAVEL_2143_repo_host
+          ServiceInstanceName: ZUI_RAP_TRAVEL_2143-html5-srv
+          ServiceKeyName: ZUI_RAP_TRAVEL_2143-repo-host-key
+          sap.cloud.service: ZUI_RAP_TRAVEL_2143
+        - Authentication: OAuth2UserTokenExchange
+          Name: ZUI_RAP_TRAVEL_2143_uaa
+          ServiceInstanceName: ZUI_RAP_TRAVEL_2143-xsuaa-srv
+          ServiceKeyName: ZUI_RAP_TRAVEL_2143-uaa-key
+          sap.cloud.service: ZUI_RAP_TRAVEL_2143
+        existing_destinations_policy: update
+  build-parameters:
+    no-source: true
+- name: ZUI_RAP_TRAVEL_2143-app-content
   type: com.sap.application.content
   path: .
   requires:
-  - name: zuiraptravel2143-repo-host
+  - name: ZUI_RAP_TRAVEL_2143-repo-host
     parameters:
       content-target: true
   build-parameters:
     build-result: resources
     requires:
     - artifacts:
-      - zuiraptravel2143.zip
-      name: zuiraptravel2143
+      - zuiraptravel.zip
+      name: zuiraptravel
       target-path: resources/
-- name: zuiraptravel2143
+- name: zuiraptravel
   type: html5
-  path: .
+  path: zui_rap_travel
   build-parameters:
     build-result: dist
     builder: custom
@@ -28,17 +58,18 @@ modules:
     - npm run build:cf
     supported-platforms: []
 resources:
-- name: zuiraptravel2143-repo-host
+- name: ZUI_RAP_TRAVEL_2143-uaa
   type: org.cloudfoundry.managed-service
   parameters:
-    service: html5-apps-repo
-    service-name: zuiraptravel2143-html5-srv
-    service-plan: app-host
-- name: zuiraptravel2143-destination-service
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: ZUI_RAP_TRAVEL_2143-xsuaa-srv
+    service-plan: application
+- name: ZUI_RAP_TRAVEL_2143-destination-service
   type: org.cloudfoundry.managed-service
   parameters:
     config:
-      HTML5Runtime_enabled: false
+      HTML5Runtime_enabled: true
       init_data:
         instance:
           destinations:
@@ -50,8 +81,13 @@ resources:
           existing_destinations_policy: update
       version: 1.0.0
     service: destination
-    service-name: zuiraptravel2143-destination-service
+    service-name: ZUI_RAP_TRAVEL_2143-destination-service
     service-plan: lite
+- name: ZUI_RAP_TRAVEL_2143-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: ZUI_RAP_TRAVEL_2143-html5-srv
+    service-plan: app-host
 parameters:
   deploy_mode: html5-repo
-  enable-parallel-deployments: true

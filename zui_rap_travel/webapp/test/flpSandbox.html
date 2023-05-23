@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <!-- Copyright (c) 2015 SAP AG, All Rights Reserved -->
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,10 +43,10 @@
                 }
             },
             applications: {
-                "zuiraptravel2143-tile": {
-                    title: "App Title",
+                "zuiraptravel-tile": {
+                    title: "Travel App",
                     description: "A Fiori application.",
-                    additionalInformation: "SAPUI5.Component=zuiraptravel2143",
+                    additionalInformation: "SAPUI5.Component=zuiraptravel",
                     applicationType: "URL",
                     url: "../"
                 }
@@ -55,21 +55,21 @@
     </script>
 
     <script src="../test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>
-    <!-- Bootstrap the UI5 core library -->
+    <!-- Bootstrap the UI5 core library. 'data-sap-ui-frameOptions="allow"'' is a NON-SECURE setting for test environments -->
     <script id="sap-ui-bootstrap"
         src="../resources/sap-ui-core.js"
         data-sap-ui-libs="sap.m,sap.ui.core,sap.ushell,sap.f,sap.ui.comp,sap.ui.generic.app,sap.suite.ui.generic.template"
         data-sap-ui-async="true"
         data-sap-ui-preload="async"
-        data-sap-ui-theme="sap_fiori_3"
+        data-sap-ui-theme="sap_horizon"
         data-sap-ui-compatVersion="edge"
         data-sap-ui-language="en"
-        data-sap-ui-resourceroots='{"zuiraptravel2143": "../"}'
-        data-sap-ui-frameOptions="allow"> // NON-SECURE setting for testing environment
-        data-sap-ui-flexibilityServices='[{"applyConnector":"zuiraptravel2143/test/changes_loader", "custom":true}]'
-        </script>
-        <script id="locate-reuse-libs" src="../utils/locate-reuse-libs.js" data-sap-ui-manifest-uri="../manifest.json">
-        </script>
+        data-sap-ui-resourceroots='{"zuiraptravel": "../"}'
+        data-sap-ui-frameOptions="allow"
+        data-sap-ui-flexibilityServices='[{"applyConnector":"zuiraptravel/test/changes_loader", "custom":true}]'>
+    </script>
+    <script id="locate-reuse-libs" src="./locate-reuse-libs.js" data-sap-ui-manifest-uri="../manifest.json">
+    </script>
 </head>
 
 <!-- UI Content -->

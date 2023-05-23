@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
 
-specVersion: "2.5"
+specVersion: "2.6"
 metadata:
-  name: zuiraptravel2143
+  name: zuiraptravel
 type: application
 server:
   customMiddleware:
@@ -17,8 +17,8 @@ server:
           url: https://ui5.sap.com
         backend:
           - path: /sap
-            url: https://44fbbf39-44b5-48cb-9800-cbb9cbadbedf.abap.us10.hana.ondemand.com
-            destination: abap-cloud-default_abap-trial-bd7f2882trial-dev
+            url: https://405e183a-28de-4d81-92fd-4d082cf16a3f.abap.us10.hana.ondemand.com
+            destination: abap-cloud-btpabap-1c8db3cdtrial-dev
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
@@ -28,5 +28,5 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: zuiraptravel2143
-        ui5Theme: sap_fiori_3
+        component: zuiraptravel
+        ui5Theme: sap_horizon
